@@ -31,6 +31,7 @@ export const register = async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      token: createToken(user._id)
     });
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -48,10 +49,11 @@ export const login = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user && (await bcrypt.compare(password, user.password))) {
-      return res.status(200).json({
+      return res.status(201).json({
         _id: user.id,
         name: user.name,
         email: user.email,
+        token: createToken(user._id)
       });
     }else {
       return res.status(401).json({ message: "Invalid Credentials" });
@@ -63,7 +65,12 @@ export const login = async (req, res) => {
 
 export const me = async (req, res) => {
   try {
-
+    const {_id, name, email} = await User.findById(req.user.id)
+    return res.status(200).json({ 
+      id: _id,
+      name,
+      email 
+    })
   }catch(error) {
     return res.status(500).json({ message: error.message });
   }
