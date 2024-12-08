@@ -9,9 +9,4 @@ export const links = [
         path: "/login",
         link: "login"
     },
-    {
-        id: 3,
-        path: "/crud",
-        link: "create"
-    },
 ]

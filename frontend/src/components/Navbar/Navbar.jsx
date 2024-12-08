@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-  <header>
+  <header className='fixed top-0 left-0 right-0'>
     <nav className='max-w-[1920px] bg-black'>
       <div className='flex justify-between items-center max-w-[1240px] h-24 mx-auto px-4 text-white'>
       <Link to="/" className='w-full text-3xl font-bold'>Logo!</Link>
@@ -19,7 +19,7 @@ const Navbar = () => {
       <ul className='hidden md:flex'>
         {links.map(item => (
           <Link to={item.path}
-            key={item._id}
+            key={item.id}
             className='p-4 rounded-xl m-2 cursor-pointer duration-300'
           >
             {item.link}
@@ -46,7 +46,7 @@ const Navbar = () => {
 
         {links.map(item => (
           <Link to={item.path}
-            key={item._id}
+            key={item.id}
             className='p-4 rounded-xl duration-300 cursor-pointer border-gray-600 block'
           >
             {item.link}

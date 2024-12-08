@@ -7,7 +7,9 @@ const Register = () => {
   const [password, setPassword] = useState('')
   
   return (
-    <div>Register</div>
+    <div className='flex items-center justify-center min-h-screen'>
+      
+    </div>
   )
 }
 
