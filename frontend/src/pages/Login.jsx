@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { loginUser } from '../components/data/api'
 import Alert from '../components/Error'
 
 const Login = () => {
@@ -16,7 +17,7 @@ const Login = () => {
         <div className='bg-white rounded-md shadow-lg p-5'>
             <h1 className='font-bold mb-4 md:text-3xl text-2xl'>Login to Your Accaunt</h1>
 
-            <form method="POST" className='p-5'>
+            <form method="POST" className='p-5' onSubmit={handleLogin}>
                 <label 
                     htmlFor="email" 
                     className='text-lg'>
