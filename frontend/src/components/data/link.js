@@ -2,21 +2,16 @@ export const links = [
     {
         id: 1,
         path: "/",
-        link: "/landing"
+        link: "Home"
     },
     {
         id: 2,
-        path: "/register",
-        link: "/landing"
+        path: "/login",
+        link: "login"
     },
     {
         id: 3,
-        path: "/login",
-        link: "/landing"
-    },
-    {
-        id: 4,
         path: "/crud",
-        link: "/landing"
+        link: "create"
     },
 ]
