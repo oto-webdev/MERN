@@ -1,15 +1,25 @@
 import React, { useState } from 'react'
-import { loginUser } from '../components/data/api'
+import { loginUser } from '../controllers/users'
 import Alert from '../components/Error'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
-    const [error, setError] = useState('ok')
+    const [error, setError] = useState('')
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const handleLogin = (e) => {
+    const navigate = useNavigate()
+
+    const handleLogin = async (e) => {
         e.preventDefault()
+
+        try{
+            await loginUser(email, password)
+            navigate("/")
+        }catch(error) {
+            setError(error.message)
+        }
     }
 
   return (
